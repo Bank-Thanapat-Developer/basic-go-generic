@@ -1,4 +1,4 @@
-package main
+package stack
 
 import "fmt"
 
@@ -17,18 +17,18 @@ func (s *Stack[T]) Push(item T) {
 	*s = append(*s, item)
 }
 
-func (s *Stack[T]) Shift() T {
-	if len(*s) == 0 {
-		return *new(T)
-	}
-	first := (*s)[0]
-	*s = (*s)[1:]
-	return first
-}
+// func (s *Stack[T]) Shift() T {
+// 	if len(*s) == 0 {
+// 		return *new(T)
+// 	}
+// 	first := (*s)[0]
+// 	*s = (*s)[1:]
+// 	return first
+// }
 
-func (s *Stack[T]) Unshift(item T) {
-	*s = append([]T{item}, *s...)
-}
+// func (s *Stack[T]) Unshift(item T) {
+// 	*s = append([]T{item}, *s...)
+// }
 
 func main() {
 	arr := Stack[int]{1, 2, 3}
@@ -39,9 +39,9 @@ func main() {
 	arr.Push(4)
 	fmt.Println(arr)
 
-	shift := arr.Shift()
-	fmt.Println(shift, arr)
+	// shift := arr.Shift()
+	// fmt.Println(shift, arr)
 
-	arr.Unshift(0)
-	fmt.Println(arr)
+	// arr.Unshift(0)
+	// fmt.Println(arr)
 }
